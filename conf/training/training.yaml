@@ -1,0 +1,39 @@
+# @package _group_
+data_module_name: lightning_modules.wsd_datamodule.DatamoduleWSD
+#data_module_name: lightning_modules.wsd_elmo_datamodule.ELMoDatamoduleWSD
+lightning_module_name: lightning_modules.wsd_lightning.WSDLightning
+learning_rate: 5e-5
+metric:
+  callback_metric: valid_score_mean
+#  metric_class: sklearn.metrics.f1_score
+  functional: False
+  metric_class: custom_metrics.f1_score.F1Score
+  params:
+#    num_classes: ${data.num_classes}
+    average: weighted
+callbacks_mode: max
+random_seed: 777
+collator:
+  name: datasets.dataset_collator.WSDCollator
+  percent: 100
+  max_seq_length: 300
+  pad_type: post
+torch_dataset_class:
+  name: datasets.dataset_collator.WSDDataset
+optimizer:
+  name: torch.optim.AdamW
+  params:
+    lr: ${training.learning_rate}
+    weight_decay: 0.001
+scheduler:
+  name: torch.optim.lr_scheduler.ReduceLROnPlateau
+  step: epoch
+  monitor: ${training.metric.callback_metric}
+  params:
+    mode: ${training.callbacks_mode}
+    factor: 0.1
+    patience: 3
+#scheduler:
+#  name: transformers.get_linear_schedule_with_warmup
+batch_size: 128
+num_workers: 1

@@ -1,0 +1,11 @@
+# @package _group_
+enable_logging: True
+loggers:
+  - class_name: pytorch_lightning.loggers.CSVLogger
+    params:
+      save_dir: logs/
+      name: csv_experiment_log
+  - class_name: pytorch_lightning.loggers.TensorBoardLogger
+    params:
+      save_dir: tensorboard_logs/
+      name: .

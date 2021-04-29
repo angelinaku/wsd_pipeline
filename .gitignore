@@ -1,0 +1,7 @@
+magma/
+outputs/
+mkl/
+venv/
+.idea/
+magma.7z
+mkl_2020.0.166.7z

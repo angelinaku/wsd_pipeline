@@ -1,0 +1,22 @@
+defaults:
+  - data: all_words_wsd
+  - trainer: basic_trainer
+  - model: bilstm_crf
+  - training: training
+  - callbacks: callbacks
+  - logging: loggers
+
+
+general:
+  all_logs_storage_path: C:\Users\Ангелина\Python_codes\wsd_train_folder\outputs\
+  logs_folder_name: logs
+  log_model_code: True
+  save_pytorch_model: True
+  save_best: True
+
+hydra:
+  run:
+    dir: C:\Users\Ангелина\Python_codes\wsd_train_folder\outputs\${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}

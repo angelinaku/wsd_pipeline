@@ -1,0 +1,4 @@
+# @package _group_
+bert_model_type: models.bert_fine_tuning.BertForSequenceClassification
+model_name: DeepPavlov/rubert-base-cased-conversational
+dropout: 0.3

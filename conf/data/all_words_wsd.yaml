@@ -1,0 +1,14 @@
+# @package _group_
+main_folder: C:\Users\Ангелина\Python_codes\wsd_train_folder\95_poly_words_exp\
+train_data_name: train_95.json
+valid_data_name: valid_95.json
+test_data_name: test_95.json
+tag_to_idx_name: tag_to_idx_278_labs.json
+num_classes: 279
+word_to_idx_name: word_to_idx_word2vec_model.json
+embedding_shape: 300
+embeddings_path: C:\Users\Ангелина\Python_codes\word2vec_models\word2vec_multiword_all_folders_special_symb_win_10.model
+#embeddings_path: C:\Users\Ангелина\Python_codes\ELMO_models_rusvect\tayga_lemmas_elmo_2048_2019
+embeddings_type: word2vec
+#embeddings_type: elmo
+vectorization: True

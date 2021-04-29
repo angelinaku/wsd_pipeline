@@ -1,0 +1,6 @@
+# @package _group_
+model_class: models.bilstm_crf.BiLSTMCRF
+params:
+  hidden_dim: 256
+  num_lstm_layers: 4
+  spatial_dropout: 0.3
